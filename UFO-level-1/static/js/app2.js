@@ -1,4 +1,8 @@
-  
+// Trying to fix the Same-Site error that pops up occasionaly and definitely when 
+//    trying to change the background image
+//    Set-cookie SameSite=None; Secure;
+
+
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
@@ -14,7 +18,6 @@ data.forEach((ufoSightings) => {
     });
 });
 
-
 // Get the reference to the button with the id property `filter-btn`
 var button = d3.select("#filter-btn");
 
@@ -27,6 +30,21 @@ button.on("click", function() {
   var inputValue = inputField.property("value");
 
   var filteredData = ufoSightings.filter(ufoSightings => ufoSightings.datetime === inputValue);
-
   console.log(filteredData);
-});
+
+  // Tried to clear the existing output and re-populate the table with just the filtered data (didn't work)
+  // data.setAttribute("style", display:none);
+    //data.forEach((filteredData) => {
+    //var row = tbody.append("tr");
+    //Object.entries(filteredData).forEach(([key, value]) => {
+        //var cell = row.append("td");
+        //cell.text(value);
+    //});
+  if (ufoSightings !== inputValue) {
+    //data.setAttribute("style", display=='none'); 
+    //ufoSightings.style.display = 'none';
+    ufoSightings.style.visibility = "hidden";
+  }
+ 
+  //}); //ends the data.forEach
+});  // ends the button.on
