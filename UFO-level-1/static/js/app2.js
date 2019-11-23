@@ -30,21 +30,25 @@ button.on("click", function() {
   var inputValue = inputField.property("value");
 
   var filteredData = ufoSightings.filter(ufoSightings => ufoSightings.datetime === inputValue);
+
   console.log(filteredData);
+  
 
   // Tried to clear the existing output and re-populate the table with just the filtered data (didn't work)
-  // data.setAttribute("style", display:none);
-    //data.forEach((filteredData) => {
-    //var row = tbody.append("tr");
-    //Object.entries(filteredData).forEach(([key, value]) => {
-        //var cell = row.append("td");
-        //cell.text(value);
+
     //});
-  if (ufoSightings !== inputValue) {
-    //data.setAttribute("style", display=='none'); 
-    //ufoSightings.style.display = 'none';
-    ufoSightings.style.visibility = "hidden";
-  }
+//   data.forEach((filteredData.datetime) => {  
+//     if (filteredData.datetime !== inputValue) {
+//         var dataIdFilter = d3.select("#filter");
+//         console.log(dataIdFilter);
+        //var datatrs = d3.selectAll("tr");
+        //console.log(datatrs);
+        //datatrs.style('display', 'none'); nothing shows on screen
+  //}  //ends the data.forEach loop
+
+  //data.forEach((ufoSightings !== inputValue) => { //error: Uncaught SyntaxError: Invalid destructuring assignment target
+    //data.style.display = 'none';
+  //});
  
   //}); //ends the data.forEach
 });  // ends the button.on
