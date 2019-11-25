@@ -1,10 +1,7 @@
-// Trying to fix the Same-Site error that pops up occasionaly and definitely when 
-//    trying to change the background image
-//    Set-cookie SameSite=None; Secure;
-
 
 // Get a reference to the table body
 var tbody = d3.select("tbody");
+
 
 // Assign the data from `data.js` to the variable `ufoSightings`
 var ufoSightings = data;
@@ -35,20 +32,13 @@ button.on("click", function() {
   
 
   // Tried to clear the existing output and re-populate the table with just the filtered data (didn't work)
+    tbody.html("");
+    filteredData.forEach((datarow) => { 
+        var row = tbody.append("tr");
+        Object.entries(datarow).forEach(([key, value]) => {
+        var cell = row.append("td");
+        cell.text(value);
+            });
+        }); 
 
-    //});
-//   data.forEach((filteredData.datetime) => {  
-//     if (filteredData.datetime !== inputValue) {
-//         var dataIdFilter = d3.select("#filter");
-//         console.log(dataIdFilter);
-        //var datatrs = d3.selectAll("tr");
-        //console.log(datatrs);
-        //datatrs.style('display', 'none'); nothing shows on screen
-  //}  //ends the data.forEach loop
-
-  //data.forEach((ufoSightings !== inputValue) => { //error: Uncaught SyntaxError: Invalid destructuring assignment target
-    //data.style.display = 'none';
-  //});
- 
-  //}); //ends the data.forEach
 });  // ends the button.on
