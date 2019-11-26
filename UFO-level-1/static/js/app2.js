@@ -26,18 +26,6 @@ button.on("click", function() {
   var inputField_country = d3.selectAll("#country").property("value");
   var inputField_shape = d3.selectAll("#shape").property("value");
 
-  var ufoDictionary = {}
-  //console.log(typeof ufoDictionary); // result = object
-  function filtering() {
-    var inputValues = d3.selectAll("input").property("value");
-    console.log(typeof inputValues) //string
-    console.log(inputValues) //first input that was entered
-    //ufoDictionary.append(inputValues);
-    
-    console.log(ufoDictionary) //empty
-  };  
-  filtering();
-
   //  Check that each input field is working correctly by sending it to the console
   console.log(inputField_datetime);
   console.log(inputField_city);
@@ -59,7 +47,7 @@ button.on("click", function() {
   console.log(filteredShape);
   
 
-  // clear the existing output and re-populate the table with just the filtered data
+    // clear the existing output and re-populate the table with just the filtered date
     tbody.html("");
     filteredDate.forEach((datarow) => { 
         var row = tbody.append("tr");
@@ -69,10 +57,61 @@ button.on("click", function() {
             });
         }); 
 
+    // clear the existing output and re-populate the table with just the filtered city
+    tbody.html("");
+    filteredCity.forEach((datarow) => { 
+        var row = tbody.append("tr");
+        Object.entries(datarow).forEach(([key, value]) => {
+        var cell = row.append("td");
+        cell.text(value);
+            });
+        });   
+        
+    // clear the existing output and re-populate the table with just the filtered state
+    tbody.html("");
+    filteredState.forEach((datarow) => { 
+        var row = tbody.append("tr");
+        Object.entries(datarow).forEach(([key, value]) => {
+        var cell = row.append("td");
+        cell.text(value);
+            });
+        });   
+        
+    // clear the existing output and re-populate the table with just the filtered shape
+    tbody.html("");
+    filteredShape.forEach((datarow) => { 
+        var row = tbody.append("tr");
+        Object.entries(datarow).forEach(([key, value]) => {
+        var cell = row.append("td");
+        cell.text(value);
+            });
+        });        
+
 });  // ends the button.on
 
 
+//  --- Code tried above in button.on to add all input data to a dictionary, ---
+//  --- but just kept returning an undefined array  ----------------------------
+// var ufoDictionary = {}
+// //console.log(typeof ufoDictionary); // result = object
+// function filtering() {
+//   var inputValues = d3.selectAll("input").property("value");
+//   console.log(typeof inputValues) //string
+//   console.log(inputValues) //first input that was entered
+//   //ufoDictionary.append(inputValues);
+//   for (var i = 0; i < inputValues.length; i++) {
+//       var datum = inputValues[i];
+//       if (!ufoDictionary[datum.key]) {
+//           ufoDictionary[datum.key] = [];
+//       }
+//       ufoDictionary[datum.key].push(datum.value);
+//       console.log(ufoDictionary); //undefined array
+//   };
+// console.log(typeof ufoDictionary) //object
+// };  
+// filtering();
 
+//  --- Another similar attempt that did not work ----
 // };
 // filtering();
 // d3.select("input")
