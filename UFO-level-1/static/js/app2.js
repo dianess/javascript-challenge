@@ -23,7 +23,7 @@ button.on("click", function() {
   var inputField_datetime = d3.selectAll("#datetime").property("value");
   var inputField_city = d3.selectAll("#city").property("value");
   var inputField_state = d3.selectAll("#state").property("value");
-  var inputField_country = d3.selectAll("#country").property("value");
+  var inputField_country = d3.selectAll("#country").property("value"); //delete since all are us in current data set
   var inputField_shape = d3.selectAll("#shape").property("value");
 
   //  Check that each input field is working correctly by sending it to the console
