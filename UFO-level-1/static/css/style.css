@@ -47,11 +47,19 @@ body {
   font-family: 'Times New Roman';
 }
 
-/* The code styles the Jetsons photo at the bottom of the footer */
+/* The code styles the Jetsons boy photo at the bottom of the footer */
 .footer-foto {
   position: absolute;
   bottom: 5px;
   left: 100px;
+  width: 35px;
+}
+
+/* The code styles the Jetsons girl photo at the bottom of the footer */
+.footer-foto-2 {
+  position: absolute;
+  bottom: 5px;
+  left: 140px;
   width: 35px;
 }
 
