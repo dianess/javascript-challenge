@@ -2,7 +2,6 @@
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
-
 // Assign the data from `data.js` to the variable `ufoSightings`
 var ufoSightings = data;
 
@@ -26,6 +25,18 @@ button.on("click", function() {
   var inputField_state = d3.selectAll("#state").property("value");
   var inputField_country = d3.selectAll("#country").property("value");
   var inputField_shape = d3.selectAll("#shape").property("value");
+
+  var ufoDictionary = {}
+  //console.log(typeof ufoDictionary); // result = object
+  function filtering() {
+    var inputValues = d3.selectAll("input").property("value");
+    console.log(typeof inputValues) //string
+    console.log(inputValues) //first input that was entered
+    //ufoDictionary.append(inputValues);
+    
+    console.log(ufoDictionary) //empty
+  };  
+  filtering();
 
   //  Check that each input field is working correctly by sending it to the console
   console.log(inputField_datetime);
@@ -60,11 +71,7 @@ button.on("click", function() {
 
 });  // ends the button.on
 
-// var ufoDictionary = {}
-// function filtering() {
-//     var inputValues = d3.select(this).select("input"); //.property("value");
-//     ufoDictionary.push(inputValues);
-//     console.log(ufoDictionary)
+
 
 // };
 // filtering();
