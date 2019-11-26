@@ -20,20 +20,37 @@ var button = d3.select("#filter-btn");
 
 button.on("click", function() {
 
-  // Get the reference to the input element with the class 'form-control'
-  var inputField = d3.select(".form-control");
+  // Get the reference to each input element using their id's in the html file
+  var inputField_datetime = d3.selectAll("#datetime").property("value");
+  var inputField_city = d3.selectAll("#city").property("value");
+  var inputField_state = d3.selectAll("#state").property("value");
+  var inputField_country = d3.selectAll("#country").property("value");
+  var inputField_shape = d3.selectAll("#shape").property("value");
 
-  // Get the value property (the date) of the input element
-  var inputValue = inputField.property("value");
+  //  Check that each input field is working correctly by sending it to the console
+  console.log(inputField_datetime);
+  console.log(inputField_city);
+  console.log(inputField_state);
+  console.log(inputField_country);
+  console.log(inputField_shape);
 
-  var filteredData = ufoSightings.filter(ufoSightings => ufoSightings.datetime === inputValue);
+  // Save each filter item in a variable
+  var filteredDate = ufoSightings.filter(ufoSightings => ufoSightings.datetime === inputField_datetime);
+  var filteredCity = ufoSightings.filter(ufoSightings => ufoSightings.city === inputField_city);
+  var filteredState = ufoSightings.filter(ufoSightings => ufoSightings.state === inputField_state);
+  var filteredCountry = ufoSightings.filter(ufoSightings => ufoSightings.country === inputField_country);
+  var filteredShape = ufoSightings.filter(ufoSightings => ufoSightings.shape === inputField_shape);
 
-  console.log(filteredData);
+  console.log(filteredDate);
+  console.log(filteredCity);
+  console.log(filteredState);
+  console.log(filteredCountry);
+  console.log(filteredShape);
   
 
-  // Tried to clear the existing output and re-populate the table with just the filtered data (didn't work)
+  // clear the existing output and re-populate the table with just the filtered data
     tbody.html("");
-    filteredData.forEach((datarow) => { 
+    filteredDate.forEach((datarow) => { 
         var row = tbody.append("tr");
         Object.entries(datarow).forEach(([key, value]) => {
         var cell = row.append("td");
@@ -42,3 +59,20 @@ button.on("click", function() {
         }); 
 
 });  // ends the button.on
+
+// var ufoDictionary = {}
+// function filtering() {
+//     var inputValues = d3.select(this).select("input"); //.property("value");
+//     ufoDictionary.push(inputValues);
+//     console.log(ufoDictionary)
+
+// };
+// filtering();
+// d3.select("input")
+//  .on("change",function(d){ 
+//     var values = [];
+//     selected = d3.select(this) // select the select
+//       //.selectAll("option:checked")  // select the selected values
+//       .each(function() { values.push(this.value) }); // for each of those, get its value
+//     console.log(values)
+// }); 
